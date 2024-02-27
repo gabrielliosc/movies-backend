@@ -5,12 +5,12 @@ const AppError = require('./utils/AppError')
 const uploadsConfig = require('./configs/upload')
 
 const express = require('express')
-
+const cors = require("cors")
 const routes = require('./routes')
 
 const app = express();
 app.use(express.json()) 
-
+app.use(cors())
 app.use("/files", express.static(uploadsConfig.UPLOADS_FOLDER))
 app.use(routes)
 
